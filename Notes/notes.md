@@ -14,3 +14,9 @@
 - why we need to move stack pointer to base pointer : (mov rbp rsp)?
 - what is this  section .text and .loop .end ?
 
+---
+
+### resources
+
+- [This Site Explain The Convention Rules, Mnemonic Opcode :](http://6.s081.scripts.mit.edu/sp18/x86-64-architecture-guide.html#:~:text=Calling%20Convention&text=The%20caller%20uses%20registers%20to,off%20the%20stack%20in%20order.)
+- 
