@@ -1,62 +1,45 @@
-Libasm Project: Your First Step into Assembly
-Goal: Rewrite basic C functions in x86-64 assembly to understand how computers really work at the lowest level.
+# Libasm 🔍✨  
+**A Journey into Low-Level Programming with x86-64 Assembly**  
 
-🔹 What You’ll Do
-Write assembly versions of:
+---
 
-strlen, strcpy, strcmp (string operations)
+## 🚀 Overview  
+**Libasm** is a project where you reimplement basic C standard library functions in **x86-64 assembly**, gaining deep insight into how computers execute code at the lowest level. Perfect for aspiring reverse engineers, exploit developers, or anyone curious about what happens "under the hood"!  
 
-write, read (system calls)
+---
 
-strdup (memory allocation)
+## 🔑 Key Features  
+✅ **Core Functions**:  
+- `ft_strlen` | `ft_strcpy` | `ft_strcmp`  
+- `ft_write` | `ft_read` | `ft_strdup`  
 
-Build a library (libasm.a) and test it against real C functions.
+🌟 **Bonus (Linked List)**:  
+- `ft_atoi_base` | `ft_list_push_front` | `ft_list_size` | *(+more)*  
 
-(Bonus) Implement linked list functions if your core work is perfect.
+---
 
-🔹 Why It Matters
-🖥️ See behind the scenes: Learn how C functions actually run on the CPU.
+## 🛠️ Technical Highlights  
+| Aspect               | Details                                                                 |
+|----------------------|-------------------------------------------------------------------------|
+| **Assembly Syntax**  | NASM (Intel-style)                                                     |
+| **Calling Convention** | System V AMD64 ABI                                                    |
+| **Error Handling**   | Properly set `errno` for syscalls                                      |
+| **Optimization**     | Zero-cost loops, register efficiency                                   |
 
-⚡ Performance tricks: Discover why xor rax, rax is faster than mov rax, 0.
+---
 
-🐞 Debug like a pro: Use gdb to inspect registers and memory.
+## 🔍 Security Insight 🛡️  
+Understanding assembly is crucial for:  
+- **Reverse Engineering**: Analyze malware or proprietary software.  
+- **Exploit Development**: Find buffer overflows, write shellcode.  
+- **Secure Coding**: Learn why functions like `strcpy` are dangerous.  
 
-🔹 Key Requirements
-✅ Pure NASM assembly (no C, no shortcuts)
-✅ Handle errors (check syscall failures, set errno)
-✅ Optimize for speed (fewer instructions = faster code)
-✅ Clean Makefile (all, clean, fclean, re)
+---
 
-🔹 Sample Code
-asm
-Copy
-; ft_strlen.s - Count chars until NULL  
-section .text  
-global ft_strlen  
-
-ft_strlen:  
-    xor  rax, rax       ; rax = 0 (counter)  
-.loop:  
-    cmp  byte [rdi + rax], 0  
-    je   .end  
-    inc  rax  
-    jmp  .loop  
-.end:  
-    ret  
-🔹 How to Shine on GitHub
-Clear README with:
-
-Project purpose
-
-How to build/test
-
-Example outputs
-
-Clean code: Consistent style, comments for tricky parts.
-
-Bonus: Add a demo GIF showing your tests in action!
-
-🚀 Takeaway
-You’ll master low-level programming while creating a library you can showcase. Perfect for anyone interested in reverse engineering, game hacking, or OS development!
-
-Ready to dive in? Start with ft_strlen and build up! 😊
+## 📂 Project Structure  
+```bash
+libasm/  
+├── ft_strlen.s    # Assembly source
+├── ft_strcpy.s  
+├── Makefile       # Builds libasm.a
+└── test/          # Test cases vs. real C functions
