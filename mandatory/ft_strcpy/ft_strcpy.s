@@ -3,7 +3,7 @@ section .text
 
 ft_strcpy:
     push    rbp
-    mov     rbp, rsp
+    xor     rbp, rsp
 
     mov     rbx, 0
 
