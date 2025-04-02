@@ -14,7 +14,7 @@ ft_strcmp:                              ; Creater stack frame and saved callee r
     mov     rax,    0
     je      .cleanup
 
-    cm    rdi,    rdi                 ; Check the first argument if it's NULL
+    test    rdi,    rdi                 ; Check the first argument if it's NULL
     mov     rax,    -1
     jz      .cleanup
 
