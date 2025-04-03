@@ -6,10 +6,8 @@ ft_strcmp:                              ; Creater stack frame and saved callee r
     mov     rbp,    rsp
 
     push    rbx
-    xor     rbx,    rbx
 
-; i will handel if the argument is NULL, even if it's not handled in standard strcmp().
-.check_NULL:
+    ; i will handel if the argument is NULL, even if it's not handled in standard strcmp().
     mov     rax,    0
     test    rdi,    rdi                 ; Check the first argument if it's NULL
     jz      .s1_null
@@ -17,27 +15,20 @@ ft_strcmp:                              ; Creater stack frame and saved callee r
     test    rsi,    rsi                 ; Check the Second argument if it's NULL
     jz      .s2_null
 
-.check_null_terminator:                 ; Check everytime null terminator in both strings
-    mov     al,    byte [rdi + rbx]
-    test    al,    al
-    jz      .end
-
-    mov     al,    byte [rsi + rbx]
-    test    al,    al
-    jz      .end
+    xor     rbx,    rbx
 
 .loop:
     mov     al,    byte [rdi + rbx]
     cmp     al,    byte [rsi + rbx]
-    jne      .end
+    jne     .end
+    test    al, al
+    jz      .cleanup
     inc     rbx
-    je      .check_null_terminator
+    jmp      .loop
 
 .end:                                   ; Set the final flag to return
-    xor     rax,    rax
-    mov     al,     byte [rdi + rbx]
     sub     al,     byte [rsi + rbx]
-    movsx     rax,    al
+    movsx   rax,    al
 
 .cleanup:                               ; return saved register on the stack
     pop     rbx
