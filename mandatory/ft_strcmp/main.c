@@ -6,8 +6,8 @@ int main() {
     printf("NULL vs NULL: %d (expected: 0)\n", ft_strcmp(NULL, NULL));
     printf("NULL vs 'abc': %d (expected: -1)\n", ft_strcmp(NULL, "abc"));
     printf("'abc' vs NULL: %d (expected: 1)\n", ft_strcmp("abc", NULL));
-    printf("Equal strings: %d (expected: 0)\n", ft_strcmp("hello", "hello"));
+    printf("Equal strings: %d (expected: 0)\n", ft_strcmp("hellohellohello", "hellohellohell"));
     printf("s1 < s2: %d (expected: -)\n", ft_strcmp("apple", "banana"));
-    printf("s1 > s2: %d (expected: +)\n", ft_strcmp("zebra", "apple"));
+    printf("s1 > s2: %d (expected: +)\n", ft_strcmp("acra", "aaple"));
     return 0;
 }
